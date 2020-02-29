@@ -33,4 +33,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.microsoft.identity.client:msal:1.0.0'
     implementation 'com.microsoft.graph:microsoft-graph:1.6.0'
+    implementation 'androidx.navigation:navigation-fragment:2.0.0'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
 }

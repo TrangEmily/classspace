@@ -4,25 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
-public class HomeFragment extends Fragment {
+public class LessonFragment extends Fragment {
     private static final String USER_NAME = "userName";
 
     private String mUserName;
 
-    public HomeFragment() {
+    public LessonFragment() {
 
     }
 
-    public static HomeFragment createInstance(String userName) {
-        HomeFragment fragment = new HomeFragment();
+    public static LessonFragment createInstance(String userName) {
+        LessonFragment fragment = new LessonFragment();
 
         // Add the provided username to the fragment's arguments
         Bundle args = new Bundle();
@@ -42,23 +40,13 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View homeView = inflater.inflate(R.layout.fragment_home, container, false);
+        View homeView = inflater.inflate(R.layout.fragment_lesson, container, false);
 
         // If there is a username, replace the "Please sign in" with the username
         if (mUserName != null) {
-            TextView userName = homeView.findViewById(R.id.home_page_username);
+            TextView userName = homeView.findViewById(R.id.home_page_username_game);
             userName.setText("Hi, ".concat(mUserName));
         }
-
-        ImageView imgClick = (ImageView) homeView.findViewById(R.id.gameImage);
-
-        imgClick.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                //Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_gameFragment);
-            }
-        });
 
         return homeView;
     }

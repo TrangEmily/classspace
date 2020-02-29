@@ -14,6 +14,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -31,8 +32,31 @@ public class EventListAdapter extends ArrayAdapter<Event> {
         TextView end;
     }
 
+    private List<Event> fakeEvents() {
+        Event e1 = new Event();
+        e1.originalStartTimeZone = "09:30";
+        e1.originalEndTimeZone = "10:30";
+        e1.subject="Math";
+
+        Event e2 = new Event();
+        e2.originalStartTimeZone = "11:00";
+        e2.originalEndTimeZone = "12:00";
+        e2.subject="Social Studies";
+
+        Event e3 = new Event();
+        e3.originalStartTimeZone = "13:30";
+        e3.originalEndTimeZone = "14:30";
+        e3.subject="English";
+
+        List<Event> eventList = Arrays.asList(e1,e2,e3);
+
+        return eventList;
+
+    }
+
     public EventListAdapter(Context context, int resource, List<Event> events) {
         super(context, resource, events);
+        events = fakeEvents();
         mContext = context;
         mResource = resource;
         mLocalTimeZoneId = TimeZone.getDefault().toZoneId();

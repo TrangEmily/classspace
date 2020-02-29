@@ -86,6 +86,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_signout:
                 signOut();
                 break;
+            case R.id.nav_game:
+                openGameFragment();
+                break;
+            case R.id.nav_lesson:
+                openLessonFragment();
+                break;
         }
 
         mDrawer.closeDrawer(GravityCompat.START);
@@ -130,6 +136,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu.findItem(R.id.nav_calendar).setVisible(isSignedIn);
         menu.findItem(R.id.nav_signout).setVisible(isSignedIn);
 
+        menu.findItem(R.id.nav_lesson).setVisible(isSignedIn);
+        menu.findItem(R.id.nav_game).setVisible(isSignedIn);
+
         // Set the user name and email in the nav drawer
         TextView userName = mHeaderView.findViewById(R.id.user_name);
         TextView userEmail = mHeaderView.findViewById(R.id.user_email);
@@ -161,6 +170,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .replace(R.id.fragment_container, new CalendarFragment())
                 .commit();
         mNavigationView.setCheckedItem(R.id.nav_calendar);
+    }
+
+    // Load the "Lesson" fragment
+    private void openLessonFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new LessonFragment())
+                .commit();
+        mNavigationView.setCheckedItem(R.id.nav_lesson);
+    }
+
+    // Load the "Game" fragment
+    private void openGameFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new GameFragment())
+                .commit();
+        mNavigationView.setCheckedItem(R.id.nav_game);
     }
 
     private void signIn() {

@@ -17,6 +17,8 @@ import com.microsoft.graph.requests.extensions.IEventCollectionPage;
 import com.microsoft.identity.client.AuthenticationCallback;
 import com.microsoft.identity.client.IAuthenticationResult;
 import com.microsoft.identity.client.exception.MsalException;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class CalendarFragment extends Fragment {
@@ -33,6 +35,24 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Event e1 = new Event();
+        e1.originalStartTimeZone = "09:30";
+        e1.originalEndTimeZone = "10:30";
+        e1.subject="Math";
+
+        Event e2 = new Event();
+        e2.originalStartTimeZone = "11:00";
+        e2.originalEndTimeZone = "12:00";
+        e2.subject="Social Studies";
+
+        Event e3 = new Event();
+        e3.originalStartTimeZone = "13:30";
+        e3.originalEndTimeZone = "14:30";
+        e3.subject="English";
+
+        List<Event> eventList = Arrays.asList(e1,e2,e3);
+        mEventList = eventList;
 
         mProgress = getActivity().findViewById(R.id.progressbar);
         showProgressBar();
