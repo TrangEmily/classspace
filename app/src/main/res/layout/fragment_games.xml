@@ -35,7 +35,7 @@
         android:id="@+id/game1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/game1"
+        android:src="@drawable/game4"
         app:layout_constraintBottom_toTopOf="@+id/game2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,20 +48,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game1"
-        app:layout_constraintBottom_toTopOf="@+id/game3"
-        android:src="@drawable/game2" />
+        app:layout_constraintBottom_toTopOf="@+id/helpImage_game"
+        android:src="@drawable/game5" />
 
-    <ImageView
-        android:id="@+id/game3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game2"
-        app:layout_constraintBottom_toTopOf="@id/helpImage_game"
-        android:src="@drawable/game3"
-        android:layout_marginBottom="48dp"
-        />
 
     <ImageView
         android:id="@+id/helpImage_game"

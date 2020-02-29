@@ -48,6 +48,35 @@ public class LessonFragment extends Fragment {
             userName.setText("Hi, ".concat(mUserName));
         }
 
+        homeView.findViewById(R.id.mathImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DetailedLessonFragment nextFrag= new DetailedLessonFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        homeView.findViewById(R.id.socialImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DetailedLessonFragment nextFrag= new DetailedLessonFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        homeView.findViewById(R.id.englishImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DetailedLessonFragment nextFrag= new DetailedLessonFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return homeView;
     }
 }

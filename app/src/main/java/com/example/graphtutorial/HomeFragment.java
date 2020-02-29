@@ -50,6 +50,36 @@ public class HomeFragment extends Fragment {
             userName.setText("Hi, ".concat(mUserName));
         }
 
+        homeView.findViewById(R.id.lessonImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                LessonFragment nextFrag= new LessonFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        homeView.findViewById(R.id.gameImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                GameFragment nextFrag= new GameFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        homeView.findViewById(R.id.eventImage).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                CalendarFragment nextFrag= new CalendarFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "findThisFragment")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
         return homeView;
     }
 }
