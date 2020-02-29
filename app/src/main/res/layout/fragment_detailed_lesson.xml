@@ -19,23 +19,13 @@
         android:text="Hi, Andy" />
 
     <ImageView
-        android:id="@+id/clockImage1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_lesson_clock"
-        app:layout_constraintBottom_toTopOf="@+id/eventImage"
-        app:layout_constraintEnd_toStartOf="@+id/lessonImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_page_username" />
-
-    <ImageView
         android:id="@+id/lessonImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/student_math"
+        android:src="@drawable/student_video_lesson"
         app:layout_constraintBottom_toTopOf="@+id/eventImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/clockImage1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_page_username" />
 
     <ImageView
@@ -46,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lessonImage"
         app:layout_constraintBottom_toTopOf="@+id/gameImage"
-        android:src="@drawable/student_english" />
+        android:src="@drawable/student_event_image" />
 
     <ImageView
         android:id="@+id/gameImage"
@@ -56,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventImage"
         app:layout_constraintBottom_toTopOf="@id/helpImage"
-        android:src="@drawable/student_social_studies"
+        android:src="@drawable/student_game_image"
         android:layout_marginBottom="48dp"
         />
 
