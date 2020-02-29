@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,6 +47,20 @@ public class HomeFragment extends Fragment {
             TextView userName = homeView.findViewById(R.id.home_page_username);
             userName.setText(mUserName);
         }
+
+        ImageView imgClick = (ImageView) homeView.findViewById(R.id.gameImage);
+
+        imgClick.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.fragment_container, new CalendarFragment())
+//                        .commit();
+
+
+            }
+        });
 
         return homeView;
     }

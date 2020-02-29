@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // Update the menu and get the user's name and email
     private void setSignedInState(boolean isSignedIn) {
+        isSignedIn = true;
         mIsSignedIn = isSignedIn;
 
         Menu menu = mNavigationView.getMenu();
