@@ -12,7 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.microsoft.graph.concurrency.ICallback;
 import com.microsoft.graph.core.ClientException;
+import com.microsoft.graph.models.extensions.DateTimeTimeZone;
+import com.microsoft.graph.models.extensions.EmailAddress;
 import com.microsoft.graph.models.extensions.Event;
+import com.microsoft.graph.models.extensions.Recipient;
 import com.microsoft.graph.requests.extensions.IEventCollectionPage;
 import com.microsoft.identity.client.AuthenticationCallback;
 import com.microsoft.identity.client.IAuthenticationResult;
@@ -26,6 +29,35 @@ public class CalendarFragment extends Fragment {
     private List<Event> mEventList = null;
     private ProgressBar mProgress = null;
 
+    private List<Event> getManualEvents() {
+        // Fake data
+        Event e1 = new Event();
+        e1.start = new DateTimeTimeZone();
+        e1.start.dateTime = "2020-03-02T12:00:00.0000000";
+        e1.start.timeZone = "PST";
+        e1.end = new DateTimeTimeZone();
+        e1.end.dateTime = "2020-03-02T13:00:00.0000000";
+        e1.end.timeZone = "PST";
+        e1.subject="Math";
+        e1.organizer = new Recipient();
+        e1.organizer.emailAddress = new EmailAddress();
+        e1.organizer.emailAddress.name = "Trang Emily";
+
+        Event e2 = new Event();
+        e2.start = new DateTimeTimeZone();
+        e2.start.dateTime = "2020-03-02T15:00:00.0000000";
+        e2.start.timeZone = "PST";
+        e2.end = new DateTimeTimeZone();
+        e2.end.dateTime = "2020-03-02T16:00:00.0000000";
+        e2.end.timeZone = "PST";
+        e2.subject="Social Studies";
+        e2.organizer = new Recipient();
+        e2.organizer.emailAddress = new EmailAddress();
+        e2.organizer.emailAddress.name = "Trang Emily";
+
+        return Arrays.asList(e1,e2);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,30 +65,7 @@ public class CalendarFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Event e1 = new Event();
-        e1.originalStartTimeZone = "09:30";
-        e1.originalEndTimeZone = "10:30";
-        e1.subject="Math";
-
-        Event e2 = new Event();
-        e2.originalStartTimeZone = "11:00";
-        e2.originalEndTimeZone = "12:00";
-        e2.subject="Social Studies";
-
-        Event e3 = new Event();
-        e3.originalStartTimeZone = "13:30";
-        e3.originalEndTimeZone = "14:30";
-        e3.subject="English";
-
-        List<Event> eventList = Arrays.asList(e1,e2,e3);
-        mEventList = eventList;
-
-        mProgress = getActivity().findViewById(R.id.progressbar);
-        showProgressBar();
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // Get a current access token
         AuthenticationHelper.getInstance()
                 .acquireTokenSilently(new AuthenticationCallback() {
@@ -72,6 +81,14 @@ public class CalendarFragment extends Fragment {
                     @Override
                     public void onError(MsalException exception) {
                         Log.e("AUTH", "Could not get token silently", exception);
+                        // Fake Event
+                        mEventList = getManualEvents();
+                        addEventsToList();
+
+                        // Temporary for debugging
+                        String jsonEvents = GraphHelper.getInstance().serializeObject(mEventList);
+                        Log.d("GRAPH", jsonEvents);
+
                         hideProgressBar();
                     }
 
@@ -80,6 +97,14 @@ public class CalendarFragment extends Fragment {
                         hideProgressBar();
                     }
                 });
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mProgress = getActivity().findViewById(R.id.progressbar);
+        showProgressBar();
     }
 
     private void showProgressBar() {
