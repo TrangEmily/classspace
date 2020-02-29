@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 signIn();
                 break;
             case R.id.nav_signout:
-                signOut();
+                //signOut();
+                openDetailedLessonFragment();
                 break;
             case R.id.nav_game:
                 openGameFragment();
@@ -162,6 +163,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .replace(R.id.fragment_container, fragment)
                 .commit();
         mNavigationView.setCheckedItem(R.id.nav_home);
+    }
+
+    // Load the "DetailedLesson" fragment
+    private void openDetailedLessonFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new DetailedLessonFragment())
+                .commit();
+        //mNavigationView.setCheckedItem(R.id.nav_calendar);
     }
 
     // Load the "Calendar" fragment

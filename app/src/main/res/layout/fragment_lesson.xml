@@ -7,7 +7,7 @@
     android:screenOrientation="landscape">
 
     <TextView
-        android:id="@+id/home_page_username"
+        android:id="@+id/home_page_username_lesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -15,64 +15,89 @@
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/lessonImage"
+        app:layout_constraintBottom_toTopOf="@id/clockImage1"
         android:text="Hi, Andy" />
 
     <ImageView
         android:id="@+id/clockImage1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
         android:src="@drawable/ic_lesson_clock"
-        app:layout_constraintBottom_toTopOf="@+id/eventImage"
-        app:layout_constraintEnd_toStartOf="@+id/lessonImage"
+        app:layout_constraintBottom_toTopOf="@+id/englishImage"
+        app:layout_constraintEnd_toStartOf="@+id/mathImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_page_username" />
+        app:layout_constraintTop_toBottomOf="@id/home_page_username_lesson" />
 
     <ImageView
-        android:id="@+id/lessonImage"
+        android:id="@+id/mathImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
         android:src="@drawable/student_math"
-        app:layout_constraintBottom_toTopOf="@+id/eventImage"
+        app:layout_constraintBottom_toTopOf="@+id/englishImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/clockImage1"
-        app:layout_constraintTop_toBottomOf="@id/home_page_username" />
+        app:layout_constraintTop_toBottomOf="@id/home_page_username_lesson" />
 
     <ImageView
-        android:id="@+id/eventImage"
+        android:id="@+id/clockImage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:src="@drawable/ic_lesson_clock"
+        app:layout_constraintBottom_toTopOf="@+id/socialImage"
+        app:layout_constraintEnd_toStartOf="@+id/englishImage"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mathImage" />
+
+
+    <ImageView
+        android:id="@+id/englishImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintStart_toEndOf="@id/clockImage2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lessonImage"
-        app:layout_constraintBottom_toTopOf="@+id/gameImage"
+        app:layout_constraintTop_toBottomOf="@+id/mathImage"
+        app:layout_constraintBottom_toTopOf="@+id/socialImage"
         android:src="@drawable/student_english" />
 
     <ImageView
-        android:id="@+id/gameImage"
+        android:id="@+id/clockImage3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="48dp"
+        android:src="@drawable/ic_lesson_clock"
+        app:layout_constraintBottom_toTopOf="@+id/helpImage_lesson"
+        app:layout_constraintEnd_toStartOf="@+id/socialImage"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/englishImage" />
+
+
+    <ImageView
+        android:id="@+id/socialImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clockImage3"
         app:layout_constraintTop_toBottomOf="@+id/eventImage"
-        app:layout_constraintBottom_toTopOf="@id/helpImage"
+        app:layout_constraintBottom_toTopOf="@id/helpImage_lesson"
         android:src="@drawable/student_social_studies"
         android:layout_marginBottom="48dp"
         />
 
     <ImageView
-        android:id="@+id/helpImage"
+        android:id="@+id/helpImage_lesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameImage"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/clockImage3"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/help_icon_small"
         android:layout_marginBottom="24dp"
         />
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

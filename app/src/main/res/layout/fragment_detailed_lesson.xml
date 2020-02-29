@@ -2,67 +2,95 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="landscape">
 
+
     <TextView
-        android:id="@+id/home_page_username"
+        android:id="@+id/home_page_username_detail_lesson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginRight="24dp"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/lessonImage"
+        app:layout_constraintBottom_toTopOf="@id/lessonVideo"
         android:text="Hi, Andy" />
 
     <ImageView
-        android:id="@+id/lessonImage"
+        android:id="@+id/lessonVideo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/student_video_lesson"
-        app:layout_constraintBottom_toTopOf="@+id/eventImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_page_username" />
+        app:layout_constraintTop_toBottomOf="@id/home_page_username_detail_lesson"
+        app:layout_constraintBottom_toTopOf="@+id/forwardImage"
+        tools:layout_editor_absoluteY="65dp" />
 
     <ImageView
-        android:id="@+id/eventImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/forwardImage"
+        android:layout_width="@dimen/icon_edge"
+        android:layout_height="@dimen/icon_edge"
+        android:rotation="180"
+        app:srcCompat="@drawable/ic_lesson_forward"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lessonImage"
-        app:layout_constraintBottom_toTopOf="@+id/gameImage"
-        android:src="@drawable/student_event_image" />
+        app:layout_constraintEnd_toStartOf="@id/allImage"
+        app:layout_constraintTop_toBottomOf="@id/lessonVideo"
+        app:layout_constraintBottom_toTopOf="@id/chatImage"
+         />
 
     <ImageView
-        android:id="@+id/gameImage"
+        android:id="@+id/allImage"
+        android:layout_width="48dp"
+        android:layout_height="72dp"
+        app:srcCompat="@drawable/ic_lesson_all"
+        app:layout_constraintStart_toEndOf="@id/forwardImage"
+        app:layout_constraintEnd_toStartOf="@id/backwardImage"
+        app:layout_constraintTop_toBottomOf="@id/lessonVideo"
+        app:layout_constraintBottom_toTopOf="@id/chatImage"
+         />
+
+    <ImageView
+        android:id="@+id/backwardImage"
+        android:layout_width="@dimen/icon_edge"
+        android:layout_height="@dimen/icon_edge"
+        app:srcCompat="@drawable/ic_lesson_forward"
+        app:layout_constraintStart_toEndOf="@id/allImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lessonVideo"
+        app:layout_constraintBottom_toTopOf="@id/chatImage"/>
+
+    <ImageView
+        android:id="@+id/chatImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_lesson_chat"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventImage"
-        app:layout_constraintBottom_toTopOf="@id/helpImage"
-        android:src="@drawable/student_game_image"
-        android:layout_marginBottom="48dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backwardImage"
+        app:layout_constraintBottom_toTopOf="@id/helpImage"/>
+
+    <ImageView
+        android:id="@+id/assignmentImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:srcCompat="@drawable/ic_lesson_assignment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chatImage"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageView
         android:id="@+id/helpImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/help_icon_small"
         android:layout_marginBottom="24dp"
-        />
-
-
-
+        android:src="@drawable/help_icon_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
